@@ -25,5 +25,3 @@ ENV PATH=$PATH:/usr/local/bin:/usr/local/bin/jre/bin
 RUN apk add --update graphviz
 # package with fonts for off-screen rendering (https://hub.docker.com/r/bellsoft/liberica-openjre-alpine)
 RUN apk add fontconfig ttf-dejavu
-
-#CMD ["/bin/sh"]

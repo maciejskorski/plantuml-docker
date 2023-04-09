@@ -1,6 +1,6 @@
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
-![Docker](https://img.shields.io/badge/dockerhub-images-important.svg?logo=LOGO)
 ![build](https://img.shields.io/github/actions/workflow/status/maciejskorski/plantuml-docker/docker-image.yaml)
+![Docker](https://img.shields.io/badge/dockerhub-images-important.svg?logo=LOGO)
 ![docker size](https://img.shields.io/docker/image-size/maciejskorski/plantuml-docker)
 
 # Summary

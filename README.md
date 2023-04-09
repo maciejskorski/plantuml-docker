@@ -5,15 +5,16 @@
 
 # Summary
 
-This repo demonstrates a light docker able to run the popular Java diagramming tool [plantuml](http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000).
+This repo demonstrates a lightweight docker able to run the popular Java diagramming tool [plantuml](http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000).
 
 # How to use
 
-* Build the image or download from DockerHub
-* Run the image, and pay attention to the container id
+* Build the image or download from DockerHub, then run then container 
 * Copy a sample plantuml diagram from the host to the running container, using the command `docker cp`. This shold look like `docker cp src/diagram.wsd 3689309baac3:/usr/local` where `3689309baac3` is the container ID.
-* Inside the container, run `plantuml diagram.wsd` to generate `diagram.png`
-* Copy the figure from the container to the host, e.g. `docker 3689309baac3:/usr/local/diagram.png .`
+* Inside the container, run `plantuml diagram.wsd` to generate the output figure `diagram.png`
+* Copy the output figure from the container to the host, e.g. `docker cp 3689309baac3:/usr/local/diagram.png .`
 
-# Note
+# Notes
+
+TBD
 

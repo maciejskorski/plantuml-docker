@@ -1,12 +1,13 @@
 # build a light Java Runtime Environment tailored to run plantuml
-FROM eclipse-temurin:11 as java_docker
+FROM eclipse-temurin:17-alpine as java_docker
 WORKDIR /usr/local/bin
 COPY src/plantuml .
 RUN chmod +x plantuml
-RUN apt-get update \
-    && apt-get install -y wget graphviz \
+RUN apk update && apk add wget \
     && wget http://sourceforge.net/projects/plantuml/files/plantuml-nodot.1.2023.5.jar/download -O plantuml.jar
 
+RUN apk add binutils
+RUN apk add fontconfig
 RUN $JAVA_HOME/bin/jlink \
          --add-modules java.base,java.datatransfer,java.desktop,java.logging,java.prefs,java.scripting,java.xml  \
          --strip-debug \
@@ -15,6 +16,14 @@ RUN $JAVA_HOME/bin/jlink \
          --compress=2 \
          --output ./jre
 
+FROM alpine:latest AS base_docker
+WORKDIR /usr/local
+COPY --from=java_docker /usr/local/bin/plantuml* ./bin
+COPY --from=java_docker /usr/local/bin/jre ./bin/jre 
 ENV PATH=$PATH:/usr/local/bin:/usr/local/bin/jre/bin
+# package for vector grrahics
+RUN apk add --update graphviz
+# package with fonts for off-screen rendering (https://hub.docker.com/r/bellsoft/liberica-openjre-alpine)
+RUN apk add fontconfig ttf-dejavu
 
-CMD ["/bin/sh"]
+#CMD ["/bin/sh"]

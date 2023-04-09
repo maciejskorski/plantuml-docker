@@ -18,8 +18,8 @@ RUN $JAVA_HOME/bin/jlink \
 
 FROM alpine:latest AS base_docker
 WORKDIR /usr/local
-COPY --from=java_docker /usr/local/bin/plantuml* ./bin
-COPY --from=java_docker /usr/local/bin/jre ./bin/jre 
+COPY --from=java_docker /usr/local/bin/plantuml* ./bin/
+COPY --from=java_docker /usr/local/bin/jre ./bin/jre
 ENV PATH=$PATH:/usr/local/bin:/usr/local/bin/jre/bin
 # package for vector grrahics
 RUN apk add --update graphviz

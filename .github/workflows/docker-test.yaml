@@ -6,3 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container: maciejskorski/plantuml-docker:latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        plantuml src/diagram.iuml

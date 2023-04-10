@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     container: maciejskorski/plantuml-docker:latest
     steps:
-    - uses: actions/checkout@v3
-    - run: |
-        plantuml src/diagram.iuml
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Generate UM diagram
+      run: plantuml src/diagram.iuml
+    - name: Archive UM diagram
+      uses: actions/upload-artifact@v3
+      with:
+        name: uml-diagram
+        path: diagram.png

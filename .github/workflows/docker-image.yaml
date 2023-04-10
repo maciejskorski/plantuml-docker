@@ -26,12 +26,12 @@ jobs:
         --tag $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION \
         --tag ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION
     - name: Publish to DockerHub
-      if: $DOCKER_PASSWORD
+      if: $DOCKER_PASSWORD != ''
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         docker push $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION
     - name: Publish to GitHub Container registry
-      if: $GITHUB_TOKEN
+      if: $GITHUB_TOKEN != ''
       run: |
         docker login ghcr.io -u $GITHUB_USER -p $GITHUB_TOKEN 
         docker push ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION

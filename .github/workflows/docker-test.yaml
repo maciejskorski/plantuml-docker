@@ -1,0 +1,8 @@
+name: docker-test
+
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: maciejskorski/plantuml-docker:latest

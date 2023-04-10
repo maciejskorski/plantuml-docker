@@ -16,4 +16,4 @@ This repo demonstrates a lightweight docker able to run the popular Java diagram
 
 # Architecture
 
-![Plantuml Docker Architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/maciejskorski/software_engineering/main/src/diagram.wsd)
+![Plantuml Docker Architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/maciejskorski/plantuml-docker/main/src/diagram.wsd)

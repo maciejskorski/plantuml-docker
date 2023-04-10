@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     # Docker tags and credentials for DockerHub/GitHub Containers, customize!
     env:

@@ -33,5 +33,5 @@ jobs:
         docker push ${{secrets.DOCKER_USER}}/$IMAGE_NAME:$IMAGE_VERSION
     - name: Build and push the image to DockerHub GitHub Container Registry
       run: |
-        docker build . --file Dockerfile --tag $GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION
+        docker build . --file Dockerfile --tag ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION
         docker push ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION

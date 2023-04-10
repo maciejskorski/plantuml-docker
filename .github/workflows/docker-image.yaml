@@ -16,21 +16,20 @@ jobs:
       IMAGE_VERSION: latest
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      PERSONAL_TOKEN: ${{ secrets.PAT }}
+      PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_USER: ${{ github.actor }}
     steps:
     - uses: actions/checkout@v3
-    - name: Log in to GitHub Container registry
-      run: |
-        docker login ghcr.io -u $GITHUB_USER -p $PERSONAL_TOKEN 
     - name: Log in to DockerHub
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "${{secrets.DOCKER_USER}}/$IMAGE_NAME:$IMAGE_VERSION"
     - name: Build and push the image to DockerHub
       run: |
         docker build . --file Dockerfile --tag $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION
-        docker push ${{secrets.DOCKER_USER}}/$IMAGE_NAME:$IMAGE_VERSION
+        docker push $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION
+    - name: Log in to GitHub Container registry
+      run: |
+        docker login ghcr.io -u $GITHUB_USER -p $PERSONAL_TOKEN 
     - name: Build and push the image to DockerHub GitHub Container Registry
       run: |
         docker build . --file Dockerfile --tag ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION

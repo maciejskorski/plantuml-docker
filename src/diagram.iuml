@@ -1,4 +1,4 @@
-@startuml "Sample Diagram"
+@startuml diagram
 title "PlantUML Docker"
 
 frame alpine-image as alpine_image {

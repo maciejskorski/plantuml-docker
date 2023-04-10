@@ -1,5 +1,3 @@
-# image to run plantuml, a Java tool generating UML diagrams 
-
 # build a light Java Runtime Environment tailored to run plantuml
 FROM eclipse-temurin:17-alpine as java_docker
 WORKDIR /usr/local/bin
@@ -26,3 +24,5 @@ ENV PATH=$PATH:/usr/local/bin:/usr/local/bin/jre/bin
 RUN apk add --update graphviz
 ## package with fonts for off-screen rendering (https://hub.docker.com/r/bellsoft/liberica-openjre-alpine)
 RUN apk add fontconfig ttf-dejavu
+
+LABEL description="A lightweight image to run plantuml, a Java tool generating UML diagrams"

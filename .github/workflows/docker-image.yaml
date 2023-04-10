@@ -23,15 +23,11 @@ jobs:
     - name: Build and tag the image
       run: |
         docker build . --tag $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION --tag ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION
-    - name: Log in to DockerHub
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Publish to DockerHub
       run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         docker push $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION
-    - name: Log in to GitHub Container registry
+    - name: Publish to GitHub Container registry
       run: |
         docker login ghcr.io -u $GITHUB_USER -p $PERSONAL_TOKEN 
-    - name: Pbulish to GitHub Container registry
-      run: |
         docker push ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION

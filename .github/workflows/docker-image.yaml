@@ -10,13 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Docker tags and credentials, customize!
+    # Docker tags and credentials for DockerHub/GitHub Containers, customize!
     env:
       IMAGE_NAME: plantuml-docker
       IMAGE_VERSION: latest
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      PERSONAL_TOKEN: ${{ secrets.PAT }}
+      GITHUB_TOKEN: ${{ secrets.PAT }}
       GITHUB_USER: ${{ github.actor }}
     steps:
     - uses: actions/checkout@v3
@@ -29,5 +29,5 @@ jobs:
         docker push $DOCKER_USER/$IMAGE_NAME:$IMAGE_VERSION
     - name: Publish to GitHub Container registry
       run: |
-        docker login ghcr.io -u $GITHUB_USER -p $PERSONAL_TOKEN 
+        docker login ghcr.io -u $GITHUB_USER -p $GITHUB_TOKEN 
         docker push ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_VERSION

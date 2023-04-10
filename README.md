@@ -16,4 +16,6 @@ This repo demonstrates a lightweight docker able to run the popular Java diagram
 
 # Architecture
 
+The docker builds on top of a tiny [Alpine Linux Image](https://hub.docker.com/_/alpine) and provides a minimalistic Java Runtime Environment tailored to running the plantuml tool.
+
 ![Plantuml Docker Architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/maciejskorski/plantuml-docker/main/src/diagram.iuml)

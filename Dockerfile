@@ -21,8 +21,8 @@ COPY --from=java_docker /usr/local/bin/plantuml* ./bin/
 COPY --from=java_docker /usr/local/bin/jre ./bin/jre
 ENV PATH=$PATH:/usr/local/bin:/usr/local/bin/jre/bin
 ## package for vector grrahics
-RUN apk add --update graphviz
+RUN apk add --no-cache graphviz
 ## package with fonts for off-screen rendering (https://hub.docker.com/r/bellsoft/liberica-openjre-alpine)
-RUN apk add fontconfig ttf-dejavu
+RUN apk add --no-cache fontconfig ttf-dejavu
 
 LABEL description="A lightweight image to run plantuml, a Java tool generating UML diagrams"

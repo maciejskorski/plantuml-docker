@@ -1,6 +1,6 @@
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
-![build](https://img.shields.io/github/actions/workflow/status/maciejskorski/plantuml-docker/docker-image.yaml)
-![tests](https://img.shields.io/github/actions/workflow/status/maciejskorski/plantuml-docker/docker-test.yaml)
+![build](https://github.com/maciejskorski/plantuml-docker/actions/workflows/docker-image.yaml/badge.svg)
+![tests](https://github.com/maciejskorski/plantuml-docker/actions/workflows/docker-test.yaml/badge.svg)
 ![Docker](https://img.shields.io/badge/dockerhub-images-important.svg?logo=LOGO)
 ![docker size](https://img.shields.io/docker/image-size/maciejskorski/plantuml-docker?sort=date)
 

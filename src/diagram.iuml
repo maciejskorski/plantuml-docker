@@ -32,12 +32,12 @@ frame alpine-image as alpine_image {
       - dependencies found by jdeps
     end note
 
-    JRE .. plantuml.jar :depends
+    JRE --> plantuml.jar :depends
 
   }
 
   diagram.wsd --> plantuml
-  plantuml --> JRE
+  plantuml -- JRE
   plantuml -> diagram.png
 
 }

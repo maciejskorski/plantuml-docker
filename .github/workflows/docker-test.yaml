@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: maciejskorski/plantuml-docker:latest
+    container: maciejskorski/plantuml-docker:naive
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
